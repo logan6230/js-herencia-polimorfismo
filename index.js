@@ -1,30 +1,27 @@
 /*Importación de clases*/
-import {Cliente} from './Cliente.js'
-import {CuentaCorriente} from './CuentaCorriente.js';
-
-const cliente = new Cliente('Leonardo','13804050','123224');
-const cliente2 = new Cliente('María','16979808','8989');
-
-const cuentaDeLeonardo = new CuentaCorriente(cliente, '1', '001');
-const cuentaDeMaria = new CuentaCorriente(cliente2,'2','002');
-
-let saldo = cuentaDeLeonardo.verSaldo(); 
-
-saldo = cuentaDeLeonardo.depositoEnCuenta(150);
-cuentaDeLeonardo.transferirParaCuenta(parametroValor,cuentaDeMaria);
-
-const saldoMaria = cuentaDeMaria.verSaldo();
-
-console.log('Cuenta de Maria',cuentaDeMaria);
-
-console.log('El Saldo actual (cuentaMaria) '+saldoMaria);
-
-const saldoLeonardo = cuentaDeLeonardo.verSaldo();
-console.log('El Saldo actual (cuentaLeonardo) '+saldoLeonardo);
-console.log(CuentaCorriente.cantidadCuentas);
-
-console.log(CuentaCorriente.cantidadCuentas);
+import { Empleado } from './Empleados/Empleado.js'
+import { Gerente } from './Empleados/Gerente.js'
+import { Director } from './Empleados/Director.js'
+import { SistemaAutenticacion } from './SistemaAutenticacion.js';
+import { Cliente } from './Cliente.js';
 
 
+const empleado = new Empleado('Segundo Pantoja', '112320399', 10000)
+const gerente = new Gerente('Jose Pantoja', '2035620', 14000)
+// const director = new Director('Jennyfer', '8596985',25000)
+console.log('***********Empleado**************');
+console.log(empleado.verBonificacion());
+empleado.asignarClave('222')
+console.log('Empleado logueado',SistemaAutenticacion.login(empleado,'222'));
+console.log('***********Gerente**************');
+console.log(gerente.verBonificacion());
+gerente.asignarClave('333')
+console.log('Gerente logueado',SistemaAutenticacion.login(gerente,'333'));
+
+// console.log(director.verBonificacion());
+console.log('***********Cliente**************');
+const cliente = new Cliente('Segundo Pantoja', '112320399', '10000')
+cliente.asignarClave('555')
+console.log('Cliente logueado',SistemaAutenticacion.login(cliente,'555'));
 
 
